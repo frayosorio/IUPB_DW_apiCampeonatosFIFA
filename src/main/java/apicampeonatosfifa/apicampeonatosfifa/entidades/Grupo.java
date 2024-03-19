@@ -12,11 +12,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "grupo")
+@Table(name = "Grupo")
 public class Grupo {
 
     @Id
@@ -25,25 +24,29 @@ public class Grupo {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "idcampeonato", referencedColumnName = "id")
+    @JoinColumn(name = "IdCampeonato", referencedColumnName = "Id")
     private Campeonato campeonato;
 
-    @Column(name = "grupo", length = 5)
+    @Column(name = "Grupo", length = 5)
     private String nombre;
 
+    /* 
     @JsonIgnore
-    @OneToMany(mappedBy = "grupo")
+    @OneToMany(mappedBy = "Grupo")
     private List<GrupoSeleccion> selecciones = new ArrayList<>();
+    */
 
     public Grupo() {
     }
 
+    /* 
     public Grupo(long id, Campeonato campeonato, String nombre, List<GrupoSeleccion> selecciones) {
         this.id = id;
         this.campeonato = campeonato;
         this.nombre = nombre;
         this.selecciones = selecciones;
     }
+    */
 
     public Grupo(long id, Campeonato campeonato, String nombre) {
         this.id = id;
@@ -75,6 +78,7 @@ public class Grupo {
         this.nombre = nombre;
     }
 
+    /* 
     public List<GrupoSeleccion> getSelecciones() {
         return selecciones;
     }
@@ -82,5 +86,5 @@ public class Grupo {
     public void setSelecciones(List<GrupoSeleccion> selecciones) {
         this.selecciones = selecciones;
     }
-
+*/
 }

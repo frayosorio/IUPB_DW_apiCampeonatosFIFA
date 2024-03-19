@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 import apicampeonatosfifa.apicampeonatosfifa.core.interfaceservicios.ISeleccionServicio;
 import apicampeonatosfifa.apicampeonatosfifa.entidades.Seleccion;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/seleccion")

@@ -1,16 +1,10 @@
 package apicampeonatosfifa.apicampeonatosfifa.entidades;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -19,19 +13,24 @@ public class Seleccion {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "Id")
     private int id;
 
-    @Column(name = "pais")
+    @Column(name = "Pais")
     private String nombre;
 
-    @Column(name = "entidad")
+    @Column(name = "Entidad")
     private String entidad;
 
+    /* 
      @JsonIgnore
     @OneToMany(mappedBy = "Seleccion")
     private List<Campeonato> campeonatos = new ArrayList<>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "Seleccion")
+    private List<Ciudad> ciudades = new ArrayList<>();
+    */
 
     public Seleccion() {
     }
