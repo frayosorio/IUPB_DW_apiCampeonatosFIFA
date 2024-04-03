@@ -15,7 +15,9 @@ public interface ISeleccionServicio {
 
     public List<Seleccion> buscar(String nombre);
 
-    public Seleccion guardar(Seleccion pais);
+    public Seleccion agregar(Seleccion pais);
+
+    public Seleccion modificar(Seleccion pais);
 
     public boolean eliminar(Integer id);
 

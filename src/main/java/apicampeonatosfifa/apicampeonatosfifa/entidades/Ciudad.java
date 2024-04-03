@@ -13,7 +13,7 @@ public class Ciudad {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "IdPais", referencedColumnName = "id")
+    @JoinColumn(name = "Idpais", referencedColumnName = "id")
     private Seleccion seleccion;
 
     @Column(name = "Ciudad", nullable = true, length = 100)

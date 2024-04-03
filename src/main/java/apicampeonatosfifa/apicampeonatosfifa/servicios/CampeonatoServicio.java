@@ -24,26 +24,38 @@ public class CampeonatoServicio implements ICampeonatoServicio {
 
     @Override
     public Campeonato obtener(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtener'");
+        return repositorio.findById(id).isPresent() ? repositorio.findById(id).get() : null;
     }
 
     @Override
     public List<Campeonato> buscar(String nombre) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        return repositorio.buscar(nombre);
     }
 
     @Override
-    public Campeonato guardar(Campeonato pais) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+    public Campeonato agregar(Campeonato campeonato) {
+        campeonato.setId(0);
+        return repositorio.save(campeonato);
     }
+
+    @Override
+    public Campeonato modificar(Campeonato campeonato) {
+        if (repositorio.findById(campeonato.getId()).isPresent()) {
+            return repositorio.save(campeonato);
+        } else {
+            return null;
+        }
+    }
+
 
     @Override
     public boolean eliminar(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }

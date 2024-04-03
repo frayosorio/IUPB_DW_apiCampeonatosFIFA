@@ -13,7 +13,7 @@ public class Estadio {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "IdCiudad", referencedColumnName = "id")
+    @JoinColumn(name = "Idciudad", referencedColumnName = "id")
     private Ciudad ciudad;
 
     @Column(name = "Estadio", nullable = true, length = 100)

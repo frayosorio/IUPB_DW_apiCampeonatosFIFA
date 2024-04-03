@@ -24,7 +24,7 @@ public class Grupo {
     private long id;
 
     @ManyToOne
-    @JoinColumn(name = "IdCampeonato", referencedColumnName = "Id")
+    @JoinColumn(name = "Idcampeonato", referencedColumnName = "Id")
     private Campeonato campeonato;
 
     @Column(name = "Grupo", length = 5)

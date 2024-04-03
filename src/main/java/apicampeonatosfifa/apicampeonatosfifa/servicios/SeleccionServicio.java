@@ -24,26 +24,37 @@ public class SeleccionServicio implements ISeleccionServicio {
 
     @Override
     public Seleccion obtener(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'obtener'");
+        return repositorio.findById(id).isPresent() ? repositorio.findById(id).get() : null;
     }
 
     @Override
     public List<Seleccion> buscar(String nombre) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscar'");
+        return repositorio.buscar(nombre);
     }
 
     @Override
-    public Seleccion guardar(Seleccion pais) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'guardar'");
+    public Seleccion agregar(Seleccion pais) {
+        pais.setId(0);
+        return repositorio.save(pais);
+    }
+
+    @Override
+    public Seleccion modificar(Seleccion pais) {
+        if (repositorio.findById(pais.getId()).isPresent()) {
+            return repositorio.save(pais);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public boolean eliminar(Integer id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'eliminar'");
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 
 }
