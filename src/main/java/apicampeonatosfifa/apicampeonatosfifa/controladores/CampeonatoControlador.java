@@ -12,7 +12,7 @@ import apicampeonatosfifa.apicampeonatosfifa.core.interfaceservicios.ICampeonato
 import apicampeonatosfifa.apicampeonatosfifa.entidades.Campeonato;
 
 @RestController
-@RequestMapping("/api/campeonato")
+@RequestMapping("/api/campeonatos")
 public class CampeonatoControlador {
 
     private ICampeonatoServicio servicio;

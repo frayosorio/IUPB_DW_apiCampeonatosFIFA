@@ -2,7 +2,6 @@ package apicampeonatosfifa.apicampeonatosfifa.controladores;
 
 import java.util.List;
 
-import org.hibernate.annotations.Parameter;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +12,7 @@ import apicampeonatosfifa.apicampeonatosfifa.entidades.Seleccion;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @RestController
-@RequestMapping("/api/seleccion")
+@RequestMapping("/api/selecciones")
 public class SeleccionControlador {
 
     private ISeleccionServicio servicio;
