@@ -31,6 +31,11 @@ public class CampeonatoControlador {
         return servicio.obtener(id);
     }
 
+    @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
+    public List<Campeonato> buscar(@PathVariable String nombre) {
+        return servicio.buscar(nombre);
+    }
+
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
     public Campeonato agregar(@RequestBody Campeonato campeonato) {
         return servicio.agregar(campeonato);

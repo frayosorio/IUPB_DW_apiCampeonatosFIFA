@@ -31,6 +31,11 @@ public class SeleccionControlador {
         return servicio.obtener(id);
     }
 
+    @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
+    public List<Seleccion> buscar(@PathVariable String nombre) {
+        return servicio.buscar(nombre);
+    }
+
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
     public Seleccion agregar(@RequestBody Seleccion seleccion) {
         return servicio.agregar(seleccion);
