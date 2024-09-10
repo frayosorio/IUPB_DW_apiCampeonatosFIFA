@@ -1,8 +1,10 @@
 package apicampeonatosfifa.apicampeonatosfifa.dominio;
 
+import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.repositorios.GrupoPaisId;
 import jakarta.persistence.*;
 
 @Entity
+@IdClass(GrupoPaisId.class)
 @Table(name = "grupopais")
 public class GrupoPais {
 
