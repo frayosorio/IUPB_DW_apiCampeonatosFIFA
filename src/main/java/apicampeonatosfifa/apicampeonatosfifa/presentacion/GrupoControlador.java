@@ -8,47 +8,52 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.ISeleccionServicio;
-import apicampeonatosfifa.apicampeonatosfifa.dominio.Seleccion;
+import apicampeonatosfifa.apicampeonatosfifa.core.interfaces.servicios.IGrupoServicio;
+import apicampeonatosfifa.apicampeonatosfifa.dominio.Grupo;
+import apicampeonatosfifa.apicampeonatosfifa.dominio.DTOs.TablaPosicionesDto;
 
 @RestController
-@RequestMapping("/api/selecciones")
-public class SeleccionControlador {
+@RequestMapping("/api/grupos")
+public class GrupoControlador {
+    private IGrupoServicio servicio;
 
-    private ISeleccionServicio servicio;
-
-    public SeleccionControlador(ISeleccionServicio servicio) {
+    public GrupoControlador(IGrupoServicio servicio) {
         this.servicio = servicio;
     }
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
-    public List<Seleccion> listar() {
+    public List<Grupo> listar() {
         return servicio.listar();
     }
 
     @RequestMapping(value = "/obtener/{id}", method = RequestMethod.GET)
-    public Seleccion obtener(@PathVariable Integer id) {
+    public Grupo obtener(@PathVariable Integer id) {
         return servicio.obtener(id);
     }
 
     @RequestMapping(value = "/buscar/{nombre}", method = RequestMethod.GET)
-    public List<Seleccion> buscar(@PathVariable String nombre) {
+    public List<Grupo> buscar(@PathVariable String nombre) {
         return servicio.buscar(nombre);
     }
 
     @RequestMapping(value = "/agregar", method = RequestMethod.POST)
-    public Seleccion agregar(@RequestBody Seleccion pais) {
-        return servicio.agregar(pais);
+    public Grupo agregar(@RequestBody Grupo Grupo) {
+        return servicio.agregar(Grupo);
     }
 
     @RequestMapping(value = "/modificar", method = RequestMethod.PUT)
-    public Seleccion modificar(@RequestBody Seleccion pais) {
-        return servicio.modificar(pais);
+    public Grupo modificar(@RequestBody Grupo Grupo) {
+        return servicio.modificar(Grupo);
     }
 
     @RequestMapping(value = "/eliminar/{id}", method = RequestMethod.DELETE)
     public boolean eliminar(@PathVariable Integer id) {
         return servicio.eliminar(id);
+    }
+
+    @RequestMapping(value = "/posiciones/{id}", method = RequestMethod.GET)
+    public List<TablaPosicionesDto> obtenerPosiciones(@PathVariable int id) {
+        return servicio.obtenerPosiciones(id);
     }
 
 }
